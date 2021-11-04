@@ -1,0 +1,15 @@
+1682abb7e6a828061c8893dc50dbb163
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ViewState = void 0;
+var ViewState;
+exports.ViewState = ViewState;
+
+(function (ViewState) {
+  ViewState["Loading"] = "Loading";
+  ViewState["Empty"] = "Empty";
+  ViewState["Data"] = "Data";
+  ViewState["Error"] = "Error";
+})(ViewState || (exports.ViewState = ViewState = {}));
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIlZpZXdTdGF0ZS50cyJdLCJuYW1lcyI6WyJWaWV3U3RhdGUiXSwibWFwcGluZ3MiOiI7Ozs7SUFBWUEsUzs7O1dBQUFBLFM7QUFBQUEsRUFBQUEsUztBQUFBQSxFQUFBQSxTO0FBQUFBLEVBQUFBLFM7QUFBQUEsRUFBQUEsUztHQUFBQSxTLHlCQUFBQSxTIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGVudW0gVmlld1N0YXRlIHtcbiAgTG9hZGluZyA9ICdMb2FkaW5nJyxcbiAgRW1wdHkgPSAnRW1wdHknLFxuICBEYXRhID0gJ0RhdGEnLFxuICBFcnJvciA9ICdFcnJvcicsXG59XG4iXX0=

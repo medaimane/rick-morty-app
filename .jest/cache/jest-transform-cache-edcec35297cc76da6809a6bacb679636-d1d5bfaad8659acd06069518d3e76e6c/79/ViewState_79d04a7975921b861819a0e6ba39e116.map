@@ -1,0 +1,1 @@
+{"version":3,"sources":["ViewState.ts"],"names":["ViewState"],"mappings":";;;;IAAYA,S;;;WAAAA,S;AAAAA,EAAAA,S;AAAAA,EAAAA,S;AAAAA,EAAAA,S;AAAAA,EAAAA,S;GAAAA,S,yBAAAA,S","sourcesContent":["export enum ViewState {\n  Loading = 'Loading',\n  Empty = 'Empty',\n  Data = 'Data',\n  Error = 'Error',\n}\n"]}

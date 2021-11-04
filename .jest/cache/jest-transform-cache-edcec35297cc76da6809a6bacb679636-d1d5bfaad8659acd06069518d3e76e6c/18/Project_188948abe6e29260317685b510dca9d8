@@ -1,0 +1,67 @@
+635232af03859f524ae9af1273d8f66c
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getExpoSDKVersion = getExpoSDKVersion;
+
+function _jsonFile() {
+  var data = _interopRequireDefault(require("@expo/json-file"));
+
+  _jsonFile = function _jsonFile() {
+    return data;
+  };
+
+  return data;
+}
+
+function _resolveFrom() {
+  var data = _interopRequireDefault(require("resolve-from"));
+
+  _resolveFrom = function _resolveFrom() {
+    return data;
+  };
+
+  return data;
+}
+
+function _Errors() {
+  var data = require("./Errors");
+
+  _Errors = function _Errors() {
+    return data;
+  };
+
+  return data;
+}
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    default: obj
+  };
+}
+
+function getExpoSDKVersion(projectRoot, exp) {
+  if (exp !== null && exp !== void 0 && exp.sdkVersion) {
+    return exp.sdkVersion;
+  }
+
+  var packageJsonPath = _resolveFrom().default.silent(projectRoot, 'expo/package.json');
+
+  if (packageJsonPath) {
+    var expoPackageJson = _jsonFile().default.read(packageJsonPath, {
+      json5: true
+    });
+
+    var packageVersion = expoPackageJson.version;
+
+    if (typeof packageVersion === 'string') {
+      var majorVersion = packageVersion.split('.').shift();
+      return majorVersion + ".0.0";
+    }
+  }
+
+  throw new (_Errors().ConfigError)("Cannot determine which native SDK version your project uses because the module `expo` is not installed. Please install it with `yarn add expo` and try again.", 'MODULE_NOT_FOUND');
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NyYy9Qcm9qZWN0LnRzIl0sIm5hbWVzIjpbImV4cCIsInBhY2thZ2VKc29uUGF0aCIsInJlc29sdmVGcm9tIiwiZXhwb1BhY2thZ2VKc29uIiwianNvbjUiLCJ2ZXJzaW9uIiwicGFja2FnZVZlcnNpb24iLCJtYWpvclZlcnNpb24iLCJDb25maWdFcnJvciJdLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUFBLFNBQUEsU0FBQSxHQUFBO0FBQUEsTUFBQSxJQUFBLEdBQUEsc0JBQUEsQ0FBQSxPQUFBLENBQUEsaUJBQUEsQ0FBQSxDQUFBOztBQUFBLEVBQUEsU0FBQSxHQUFBLHFCQUFBO0FBQUEsV0FBQSxJQUFBO0FBQUEsR0FBQTs7QUFBQSxTQUFBLElBQUE7QUFBQTs7QUFDQSxTQUFBLFlBQUEsR0FBQTtBQUFBLE1BQUEsSUFBQSxHQUFBLHNCQUFBLENBQUEsT0FBQSxDQUFBLGNBQUEsQ0FBQSxDQUFBOztBQUFBLEVBQUEsWUFBQSxHQUFBLHdCQUFBO0FBQUEsV0FBQSxJQUFBO0FBQUEsR0FBQTs7QUFBQSxTQUFBLElBQUE7QUFBQTs7QUFHQSxTQUFBLE9BQUEsR0FBQTtBQUFBLE1BQUEsSUFBQSxHQUFBLE9BQUEsWUFBQTs7QUFBQSxFQUFBLE9BQUEsR0FBQSxtQkFBQTtBQUFBLFdBQUEsSUFBQTtBQUFBLEdBQUE7O0FBQUEsU0FBQSxJQUFBO0FBQUE7Ozs7Ozs7O0FBRU8sU0FBQSxpQkFBQSxDQUFBLFdBQUEsRUFBQSxHQUFBLEVBR0c7QUFDUixNQUFJQSxHQUFKLEtBQUEsSUFBSUEsSUFBQUEsR0FBSixLQUFBLEtBQUEsQ0FBSUEsSUFBQUEsR0FBRyxDQUFQLFVBQUEsRUFBcUI7QUFDbkIsV0FBT0EsR0FBRyxDQUFWLFVBQUE7QUFDRDs7QUFDRCxNQUFNQyxlQUFlLEdBQUdDLFlBQUFBLEdBQUFBLE9BQUFBLENBQUFBLE1BQUFBLENBQUFBLFdBQUFBLEVBQXhCLG1CQUF3QkEsQ0FBeEI7O0FBQ0EsTUFBQSxlQUFBLEVBQXFCO0FBQ25CLFFBQU1DLGVBQWUsR0FBRyxTQUFBLEdBQUEsT0FBQSxDQUFBLElBQUEsQ0FBQSxlQUFBLEVBQStCO0FBQUVDLE1BQUFBLEtBQUssRUFBRTtBQUFULEtBQS9CLENBQXhCOztBQUNBLFFBQWlCRSxjQUFqQixHQUFBLGVBQUEsQ0FBUUQsT0FBUjs7QUFDQSxRQUFJLE9BQUEsY0FBQSxLQUFKLFFBQUEsRUFBd0M7QUFDdEMsVUFBTUUsWUFBWSxHQUFHRCxjQUFjLENBQWRBLEtBQUFBLENBQUFBLEdBQUFBLEVBQXJCLEtBQXFCQSxFQUFyQjtBQUNBLGFBQUEsWUFBQTtBQUNEO0FBQ0Y7O0FBQ0QsUUFBTSxLQUFJRSxPQUFBQSxHQUFKLFdBQUEsbUtBQU4sa0JBQU0sQ0FBTjtBQUlEIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IEpzb25GaWxlIGZyb20gJ0BleHBvL2pzb24tZmlsZSc7XG5pbXBvcnQgcmVzb2x2ZUZyb20gZnJvbSAncmVzb2x2ZS1mcm9tJztcblxuaW1wb3J0IHsgRXhwb0NvbmZpZyB9IGZyb20gJy4vQ29uZmlnLnR5cGVzJztcbmltcG9ydCB7IENvbmZpZ0Vycm9yIH0gZnJvbSAnLi9FcnJvcnMnO1xuXG5leHBvcnQgZnVuY3Rpb24gZ2V0RXhwb1NES1ZlcnNpb24oXG4gIHByb2plY3RSb290OiBzdHJpbmcsXG4gIGV4cDogUGljazxFeHBvQ29uZmlnLCAnc2RrVmVyc2lvbic+XG4pOiBzdHJpbmcge1xuICBpZiAoZXhwPy5zZGtWZXJzaW9uKSB7XG4gICAgcmV0dXJuIGV4cC5zZGtWZXJzaW9uO1xuICB9XG4gIGNvbnN0IHBhY2thZ2VKc29uUGF0aCA9IHJlc29sdmVGcm9tLnNpbGVudChwcm9qZWN0Um9vdCwgJ2V4cG8vcGFja2FnZS5qc29uJyk7XG4gIGlmIChwYWNrYWdlSnNvblBhdGgpIHtcbiAgICBjb25zdCBleHBvUGFja2FnZUpzb24gPSBKc29uRmlsZS5yZWFkKHBhY2thZ2VKc29uUGF0aCwgeyBqc29uNTogdHJ1ZSB9KTtcbiAgICBjb25zdCB7IHZlcnNpb246IHBhY2thZ2VWZXJzaW9uIH0gPSBleHBvUGFja2FnZUpzb247XG4gICAgaWYgKHR5cGVvZiBwYWNrYWdlVmVyc2lvbiA9PT0gJ3N0cmluZycpIHtcbiAgICAgIGNvbnN0IG1ham9yVmVyc2lvbiA9IHBhY2thZ2VWZXJzaW9uLnNwbGl0KCcuJykuc2hpZnQoKTtcbiAgICAgIHJldHVybiBgJHttYWpvclZlcnNpb259LjAuMGA7XG4gICAgfVxuICB9XG4gIHRocm93IG5ldyBDb25maWdFcnJvcihcbiAgICBgQ2Fubm90IGRldGVybWluZSB3aGljaCBuYXRpdmUgU0RLIHZlcnNpb24geW91ciBwcm9qZWN0IHVzZXMgYmVjYXVzZSB0aGUgbW9kdWxlIFxcYGV4cG9cXGAgaXMgbm90IGluc3RhbGxlZC4gUGxlYXNlIGluc3RhbGwgaXQgd2l0aCBcXGB5YXJuIGFkZCBleHBvXFxgIGFuZCB0cnkgYWdhaW4uYCxcbiAgICAnTU9EVUxFX05PVF9GT1VORCdcbiAgKTtcbn1cbiJdfQ==

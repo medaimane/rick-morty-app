@@ -1,0 +1,1 @@
+{"version":3,"sources":["charactersStub.ts"],"names":["charactersStub","name"],"mappings":";;;;AAEO,IAAMA,cAA+B,GAAG,CAAC;AAACC,EAAAA,IAAI,EAAE;AAAP,CAAD,EAAc;AAACA,EAAAA,IAAI,EAAE;AAAP,CAAd,CAAxC","sourcesContent":["import {CharacterJSON} from '../../src/services/models/CharacterJSON';\n\nexport const charactersStub: CharacterJSON[] = [{name: 'A'}, {name: 'B'}];\n"]}
