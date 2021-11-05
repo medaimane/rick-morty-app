@@ -18,5 +18,9 @@ export function getHomeViewState(state: HomeState): HomeViewState {
 function mapCharactersToPresentables(
   characters: CharacterJSON[]
 ): CharacterPresentable[] {
-  return characters.map((c) => ({name: c.name.toUpperCase()}));
+  return characters.map((c) => ({
+    id: c.id,
+    name: c.name,
+    image: c.image,
+  }));
 }
