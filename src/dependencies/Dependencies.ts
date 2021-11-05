@@ -1,10 +1,14 @@
-import {CharactersGateway} from '../services/api/CharactersService/CharactersGateway';
-import {CharactersService} from '../services/api/CharactersService/CharactersService';
+import {ApolloGraphQLClient} from '../services/networking/AppoloGraphQLClient';
+import {CharactersGateway} from '../services/api/CharactersGateway';
+import {CharactersService} from '../services/api/CharactersService';
+import {DevNetworkingConfiguration} from '../services/networking/NetworkingConfiguration';
+
+const graphQLClient = new ApolloGraphQLClient(new DevNetworkingConfiguration());
 
 export interface Dependencies {
   gateway: CharactersGateway;
 }
 
 export const dependencies: Dependencies = {
-  gateway: new CharactersService(),
+  gateway: new CharactersService(graphQLClient),
 };
