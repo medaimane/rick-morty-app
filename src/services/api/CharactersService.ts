@@ -8,10 +8,16 @@ import {charactersQuery} from './charactersQuery';
 export class CharactersService implements CharactersGateway {
   constructor(private readonly graphQLClient: GraphQLClient) {}
 
-  fetchCharacters(): Observable<CharacterJSON[]> {
+  fetchCharacters(page?: number): Observable<CharacterJSON[]> {
     return this.graphQLClient
       .query<CharactersQueryJSON>({
         query: charactersQuery,
+        variables: {
+          page,
+        },
+      })
+      .pipe(map(({data: {characters}}) => characters.results));
+  }
       })
       .pipe(map(({data: {characters}}) => characters.results));
   }

@@ -38,7 +38,7 @@ describe('homeEpics', () => {
         sut(action$, state$, dependencies).subscribe(next);
 
         expect(next).toBeCalledWith({
-          type: HomeActions.fetchCharacter.success.type,
+          type: HomeActions.fetchCharacters.success.type,
           payload: charactersStub,
         });
       });
@@ -53,7 +53,7 @@ describe('homeEpics', () => {
         sut(action$, state$, dependencies).subscribe(next);
 
         expect(next).toBeCalledWith({
-          type: HomeActions.fetchCharacter.failure.type,
+          type: HomeActions.fetchCharacters.failure.type,
         });
       });
     });

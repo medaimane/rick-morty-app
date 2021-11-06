@@ -10,9 +10,7 @@ export const Colors = {
   PrimaryLight: '#5f59f7',
   PrimarySoft: '#6592fd',
 
-  BlueLight: '#44c2fd',
-
-  Secondary: '#8c61ff',
+  Secondary: '#44c2fd',
 
   Error: '#F03700',
   Success: '#55c36c',

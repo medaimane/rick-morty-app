@@ -1,12 +1,17 @@
 import React, {useEffect} from 'react';
-import {FlatList, StyleSheet, View} from 'react-native';
+import {FlatList, StyleSheet, TextInput, View} from 'react-native';
 import {connect} from 'react-redux';
 import {bindActionCreators, Dispatch} from 'redux';
 import {returntypeof} from 'typesafe-actions';
 import {CharacterCard} from '../../components/CharacterCard';
+import {Header} from '../../components/Header';
 import {RemoteData} from '../../components/RemoteData';
+import {Separator} from '../../components/Separator';
+import {TextView} from '../../components/TextView';
+import {local} from '../../localization/Localization';
 import {RootState} from '../../store/rootState';
 import {Colors} from '../../theme/Colors';
+import {Fonts, FontSize} from '../../theme/Fonts';
 import {HomeViewActions} from './HomeActions';
 import {getHomeViewState} from './homeSelectors';
 
@@ -30,26 +35,27 @@ export function HomeComponent({
   }, [start]);
 
   return (
-    <RemoteData
-      viewState={viewState}
-      renderData={() => (
-        <FlatList
-          data={characters}
-          renderItem={({item}) => (
-            <CharacterCard
-              onPress={() => {
-                console.log('Pressed', item);
+    <View style={styles.container}>
+      <Header />
 
-                showDetails(item.id);
-              }}
-              character={item}
-            />
-          )}
-          keyExtractor={(_, idx) => 'CharacterCard_' + idx}
-          ItemSeparatorComponent={() => <View style={styles.separator} />}
-        />
-      )}
-    />
+      <RemoteData
+        viewState={viewState}
+        renderData={() => (
+          <FlatList
+            data={characters}
+            renderItem={({item}) => (
+              <CharacterCard
+                character={item}
+                onPress={() => showDetails(item.id)}
+              />
+            )}
+            keyExtractor={(_, idx) => 'CharacterCard_' + idx}
+            ItemSeparatorComponent={Separator}
+            showsVerticalScrollIndicator={false}
+          />
+        )}
+      />
+    </View>
   );
 }
 
@@ -59,8 +65,7 @@ export const HomeScreen = connect(
 )(HomeComponent);
 
 const styles = StyleSheet.create({
-  separator: {
-    borderBottomColor: Colors.Secondary,
-    borderBottomWidth: 0.5,
+  container: {
+    flex: 1,
   },
 });

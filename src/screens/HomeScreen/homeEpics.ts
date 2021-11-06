@@ -8,8 +8,8 @@ const start: EpicType = (action$, _state$, {gateway}) =>
     ofType(HomeViewActions.start.type),
     mergeMap(() =>
       gateway.fetchCharacters().pipe(
-        map(HomeActions.fetchCharacter.success),
-        catchError(() => of(HomeActions.fetchCharacter.failure()))
+        map(HomeActions.fetchCharacters.success),
+        catchError(() => of(HomeActions.fetchCharacters.failure()))
       )
     )
   );

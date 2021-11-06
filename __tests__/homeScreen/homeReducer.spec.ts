@@ -19,7 +19,7 @@ describe('homeReducer', () => {
 
   describe('when HOME/FETCH_CHARACTERS_SUCCESS action received', () => {
     it('sets carachters to the action payload', () => {
-      const action = HomeActions.fetchCharacter.success(charactersStub);
+      const action = HomeActions.fetchCharacters.success(charactersStub);
       const state: HomeState = {
         ...initialHomeState,
         characters: [],
@@ -43,7 +43,7 @@ describe('homeReducer', () => {
       ];
 
       cases.forEach(({characters, expectedViewState}) => {
-        const action = HomeActions.fetchCharacter.success(characters);
+        const action = HomeActions.fetchCharacters.success(characters);
         const state: HomeState = {
           ...initialHomeState,
           viewState: ViewState.Loading,
@@ -63,7 +63,7 @@ describe('homeReducer', () => {
         viewState: ViewState.Data,
       };
 
-      const newState = sut(state, HomeActions.fetchCharacter.failure());
+      const newState = sut(state, HomeActions.fetchCharacters.failure());
 
       expect(newState.viewState).toBe(ViewState.Error);
     });

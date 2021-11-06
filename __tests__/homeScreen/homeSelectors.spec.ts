@@ -4,6 +4,7 @@ import {
   HomeState,
   initialHomeState,
 } from '../../src/screens/HomeScreen/homeReducer';
+import {charactersStub} from '../stubs/charactersStub';
 
 describe('homeSelectors', () => {
   describe('viewState', () => {
@@ -23,12 +24,12 @@ describe('homeSelectors', () => {
     describe('returns mapped charachters presentable', () => {
       const state: HomeState = {
         ...initialHomeState,
-        characters: [{name: 'aa'}, {name: 'bb'}],
+        characters: charactersStub,
       };
 
       const viewState = sut(state);
 
-      expect(viewState.characters).toEqual([{name: 'AA'}, {name: 'BB'}]);
+      expect(viewState.characters).toEqual(charactersStub);
     });
   });
 });

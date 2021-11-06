@@ -19,7 +19,7 @@ export function homeReducer(
   action: Action | ActionWithPayload
 ): HomeState {
   switch (action.type) {
-    case HomeActions.fetchCharacter.success.type: {
+    case HomeActions.fetchCharacters.success.type: {
       const characters: CharacterJSON[] = action.payload;
 
       return {
@@ -29,7 +29,7 @@ export function homeReducer(
       };
     }
 
-    case HomeActions.fetchCharacter.failure.type: {
+    case HomeActions.fetchCharacters.failure.type: {
       return {
         ...state,
         viewState: ViewState.Error,
