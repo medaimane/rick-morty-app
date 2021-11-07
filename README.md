@@ -7,10 +7,10 @@ The Rick and Morty App using React Native Expo.
 ### Android version
 
 <div align="center" >
-  <img width="300" src="./docs/screenshots/android/Screenshot_1636250583.png" alt="Screenshot 1" />
-  <img width="300" src="./docs/screenshots/android/Screenshot_1636250570.png" alt="Screenshot 2" />
-  <img width="300" src="./docs/screenshots/android/Screenshot_1636250557.png" alt="Screenshot 3" />
-  <img width="300" src="./docs/screenshots/android/Screenshot_1636250567.png" alt="Screenshot 4" />
+  <img width="200" src="./docs/screenshots/android/Screenshot_1636250583.png" alt="Screenshot 1" />
+  <img width="200" src="./docs/screenshots/android/Screenshot_1636250570.png" alt="Screenshot 2" />
+  <img width="200" src="./docs/screenshots/android/Screenshot_1636250557.png" alt="Screenshot 3" />
+  <img width="200" src="./docs/screenshots/android/Screenshot_1636250567.png" alt="Screenshot 4" />
 </div>
 
 ### iOS version
