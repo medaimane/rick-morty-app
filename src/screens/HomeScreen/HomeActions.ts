@@ -11,6 +11,6 @@ export const HomeActions = {
 };
 
 export const HomeViewActions = {
-  start: actionCreator('START'),
+  fetchCharacters: actionCreator('FETCH_CHARACTERS'),
   showDetails: actionCreator<string>('SHOW_DETAILS'),
 };

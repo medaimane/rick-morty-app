@@ -7,6 +7,11 @@ export const charactersQuery = gql`
         id
         name
         image
+        status
+        created
+        gender
+        type
+        species
       }
     }
   }

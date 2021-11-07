@@ -2,6 +2,8 @@ import React, {ReactNode} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {local} from '../localization/Localization';
 import {ViewState} from '../store/ViewState';
+import {Colors} from '../theme/Colors';
+import {Fonts, FontSize} from '../theme/Fonts';
 import {LoadingView} from './LoadingView';
 import {TextView} from './TextView';
 
@@ -18,11 +20,23 @@ export function RemoteData(props: Props) {
       }
 
       case ViewState.Empty: {
-        return <TextView text={local.noDataFound} />;
+        return (
+          <TextView
+            style={styles.view}
+            textStyle={styles.empty}
+            text={local.noDataFound}
+          />
+        );
       }
 
       case ViewState.Error: {
-        return <TextView text={local.somethingWentWrong} />;
+        return (
+          <TextView
+            style={styles.view}
+            textStyle={styles.error}
+            text={local.somethingWentWrong}
+          />
+        );
       }
 
       case ViewState.Loading: {
@@ -37,5 +51,19 @@ export function RemoteData(props: Props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  view: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: Colors.White,
+  },
+  error: {
+    ...Fonts.Regular(FontSize.Header2),
+    color: Colors.Error,
+  },
+  empty: {
+    ...Fonts.Regular(FontSize.Header2),
+    color: Colors.DarkText,
   },
 });

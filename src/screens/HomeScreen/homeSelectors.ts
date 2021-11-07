@@ -1,6 +1,9 @@
 import {CharacterJSON} from '../../services/models/CharacterJSON';
 import {ViewState} from '../../store/ViewState';
-import {CharacterPresentable} from '../CharacterPresentable';
+import {
+  buildCharaterPresentable,
+  CharacterPresentable,
+} from './CharacterPresentable';
 import {HomeState} from './homeReducer';
 
 export interface HomeViewState {
@@ -18,9 +21,5 @@ export function getHomeViewState(state: HomeState): HomeViewState {
 function mapCharactersToPresentables(
   characters: CharacterJSON[]
 ): CharacterPresentable[] {
-  return characters.map((c) => ({
-    id: c.id,
-    name: c.name,
-    image: c.image,
-  }));
+  return characters.map(buildCharaterPresentable);
 }

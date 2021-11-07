@@ -1,6 +1,6 @@
 import React from 'react';
 import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
-import {CharacterPresentable} from '../screens/CharacterPresentable';
+import {CharacterPresentable} from '../screens/HomeScreen/CharacterPresentable';
 import {Colors} from '../theme/Colors';
 import {Fonts, FontSize} from '../theme/Fonts';
 import {ArrowForwardSvg} from './svgs/ArrowForwardSvg';
@@ -11,7 +11,7 @@ interface Props {
   onPress: () => void;
 }
 
-export function CharacterCard({character, onPress}: Props) {
+export function CharacterRow({character, onPress}: Props) {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
       <View style={styles.imageContainer}>
@@ -36,8 +36,8 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
   },
   imageContainer: {
-    width: 80,
-    height: 80,
+    width: 60,
+    height: 60,
   },
   image: {
     flex: 1,
@@ -46,10 +46,11 @@ const styles = StyleSheet.create({
   },
   name: {
     flexGrow: 1,
-    paddingHorizontal: 8,
+    paddingLeft: 16,
+    justifyContent: 'center',
   },
   text: {
-    ...Fonts.Bold(FontSize.Normal),
+    ...Fonts.Bold(FontSize.Header3),
     color: Colors.PrimaryLight,
   },
 });

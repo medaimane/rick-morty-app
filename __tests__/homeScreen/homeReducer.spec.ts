@@ -1,4 +1,4 @@
-import {charactersStub} from '../stubs/charactersStub';
+import {charactersJSONStub} from '../stubs/charactersStub';
 import {ViewState} from '../../src/store/ViewState';
 import {HomeActions} from '../../src/screens/HomeScreen/HomeActions';
 import {
@@ -19,7 +19,7 @@ describe('homeReducer', () => {
 
   describe('when HOME/FETCH_CHARACTERS_SUCCESS action received', () => {
     it('sets carachters to the action payload', () => {
-      const action = HomeActions.fetchCharacters.success(charactersStub);
+      const action = HomeActions.fetchCharacters.success(charactersJSONStub);
       const state: HomeState = {
         ...initialHomeState,
         characters: [],
@@ -27,7 +27,7 @@ describe('homeReducer', () => {
 
       const newState = sut(state, action);
 
-      expect(newState.characters).toEqual(charactersStub);
+      expect(newState.characters).toEqual(charactersJSONStub);
     });
 
     it('sets viewState to Empty when charaters are empty otherwise to Data', () => {
@@ -37,7 +37,7 @@ describe('homeReducer', () => {
           expectedViewState: ViewState.Empty,
         },
         {
-          characters: charactersStub,
+          characters: charactersJSONStub,
           expectedViewState: ViewState.Data,
         },
       ];

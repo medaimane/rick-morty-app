@@ -1,5 +1,7 @@
 describe('ApolloGraphQLClient', () => {
   describe('query', () => {
-    // TODO: ApolloGraphQLClient query test cases
+    xit('todos', () => {
+      // TODO: Add unit tests
+    });
   });
 });

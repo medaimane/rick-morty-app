@@ -1,6 +1,6 @@
 import {StateObservable} from 'redux-observable';
 import {of, throwError} from 'rxjs';
-import {charactersStub} from '../stubs/charactersStub';
+import {charactersJSONStub} from '../stubs/charactersStub';
 import {TestAssembly} from '../stubs/TestAssembly';
 import {RootState} from '../../src/store/rootState';
 import {
@@ -20,8 +20,8 @@ describe('homeEpics', () => {
     dependencies.gateway.fetchCharacters.mockReturnValue(of(void 0));
   });
 
-  describe('when HOME/START action received', () => {
-    const action$ = of(HomeViewActions.start());
+  describe('when HOME/FETCH_CHARACTERS action received', () => {
+    const action$ = of(HomeViewActions.fetchCharacters());
 
     it('fetchs characters using gateway', () => {
       sut(action$, state$, dependencies).subscribe();
@@ -32,14 +32,14 @@ describe('homeEpics', () => {
     describe('when success', () => {
       it('emits HOME/FETCH_CHARACTERS_SUCCESS action', () => {
         dependencies.gateway.fetchCharacters.mockReturnValue(
-          of(charactersStub)
+          of(charactersJSONStub)
         );
 
         sut(action$, state$, dependencies).subscribe(next);
 
         expect(next).toBeCalledWith({
           type: HomeActions.fetchCharacters.success.type,
-          payload: charactersStub,
+          payload: charactersJSONStub,
         });
       });
     });

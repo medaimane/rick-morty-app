@@ -20,6 +20,6 @@ const styles = StyleSheet.create({
   },
   titleText: {
     ...Fonts.Bold(FontSize.Header2),
-    color: Colors.PrimarySoft,
+    color: Colors.Black,
   },
 });

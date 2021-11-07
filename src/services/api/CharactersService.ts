@@ -18,7 +18,4 @@ export class CharactersService implements CharactersGateway {
       })
       .pipe(map(({data: {characters}}) => characters.results));
   }
-      })
-      .pipe(map(({data: {characters}}) => characters.results));
-  }
 }

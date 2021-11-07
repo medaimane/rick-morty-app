@@ -5,7 +5,7 @@ import {HomeActions, HomeViewActions} from './HomeActions';
 
 const start: EpicType = (action$, _state$, {gateway}) =>
   action$.pipe(
-    ofType(HomeViewActions.start.type),
+    ofType(HomeViewActions.fetchCharacters.type),
     mergeMap(() =>
       gateway.fetchCharacters().pipe(
         map(HomeActions.fetchCharacters.success),
