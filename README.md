@@ -35,9 +35,9 @@ Node.js and Expo cli is required to run the app.
 
 - Clone repo code `git clone repo-url`
 
-- Run `yarn`, to install all the dependencies.
+- Run `expo install` or `yarn`, to install all the dependencies.
 
-- Run `yarn start`, to run the expo dev server and then choose which platform to build the app for (a -> android, i -> ios, ...)
+- Run `expo start` or `yarn start`, to run the expo dev server and then choose which platform to build the app for (a -> android, i -> ios, w -> web...)
 
 ## Contributors
 
